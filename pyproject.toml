@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "testtaskapi"
+version = "0.1.0"
+description = ""
+authors = ["Victor <polyakov.victor21@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.0.1"
+djangorestframework = "^3.14.0"
+pytest = "^7.4.4"
+pytest-django = "^4.7.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

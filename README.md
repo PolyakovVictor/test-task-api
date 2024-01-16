@@ -1,19 +1,8 @@
 ## Technology stack
 
 - Backend: Django
-- Database: PostgreSQL
 
 ## Backend
-
-```plaintext
-
-Example .env file
-DATABASE_NAME = db_name
-DATABASE_USER = user
-DATABASE_PASSWORD = password
-DATABASE_HOST = localhost
-DATABASE_PORT = 5432
-```
 
 #### First, create and activate venv
 

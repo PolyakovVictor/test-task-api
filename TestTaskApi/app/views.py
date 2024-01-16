@@ -6,6 +6,7 @@ from .models import Team, Member, Membership
 from .serializers import TeamSerializer, MemberSerializer, MembershipSerializer
 
 
+# CRUD for teams
 class TeamView(APIView):
     serializer_class = TeamSerializer
 
@@ -44,6 +45,7 @@ class TeamView(APIView):
         return Response({"message": f"Team '{team_name}' was successfully deleted"}, status=status.HTTP_204_NO_CONTENT)
 
 
+# CRUD for members
 class MemberView(APIView):
     serializer_class = MemberSerializer
 
@@ -82,6 +84,7 @@ class MemberView(APIView):
         return Response({"message": f"Member '{member_name}' was successfully deleted"}, status=status.HTTP_204_NO_CONTENT)
 
 
+# view adds a member to a team by team id and member id, and removes a member from the team
 class MembershipView(APIView):
     def post(self, request):
         team_id = request.data.get('team_id')
@@ -121,6 +124,7 @@ class MembershipView(APIView):
         return Response({"message": f"{member_name} was removed from the group {team_name}"}, status=status.HTTP_204_NO_CONTENT)
 
 
+# returns all teams with their members
 class AllTeamsWithMembersView(APIView):
     def get(self, request):
         memberships = Membership.objects.select_related('team', 'member').all()
@@ -128,6 +132,7 @@ class AllTeamsWithMembersView(APIView):
         return Response(serializer.data)
 
 
+# class that returns a team with its members
 class SingleTeamWithMembersView(APIView):
     def get(self, request, pk):
         team = Team.objects.get(id=pk)

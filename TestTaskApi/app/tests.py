@@ -2,6 +2,7 @@ from rest_framework.test import APITestCase
 from django.test import TestCase
 from .models import Team
 
+
 class TeamViewTestCase(TestCase):
 
     def test_get_all_teams(self): 
